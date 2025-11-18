@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>BlueInnovation</title>
+    <style>
+        :root{
+            --brand: #00BFB3;   /* blueinnovation */
+            --disclaimer: #002E5D; /* disclaimer */
+            --bg: #ffffff;
+            --text: #0a0a0a;
+        }
+
+        body{
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: var(--bg);
+            color: var(--text);
+            margin: 40px;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+
+        .container{
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .header{
+            display:flex;
+            align-items:center;
+            gap: 28px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        img.logo{
+            height: 96px;
+            width: auto;
+            display:block;
+        }
+
+        .title{
+            font-size: clamp(32px, 6vw, 72px); /* responsive large */
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: #00BFB3;
+            text-transform: none;
+        }
+
+        .disclaimer{
+            margin-top: 36px;
+            font-size: 15px;
+            line-height: 1.45;
+            color: #002E5D;
+            max-width: 900px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 18px;
+            border-radius: 8px;
+        }
+
+        /* mobile tweaks */
+        @media (max-width:600px){
+            .header{
+                gap:16px;
+            }
+            img.logo{
+                height:72px;
+            }
+            .disclaimer{
+                font-size:14px;
+                padding:12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header" role="banner" aria-label="BlueInnovation header">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="BlueInnovation logo" class="logo" />
+            <div class="title">blueinnovation</div>
+        </div>
+
+        <div class="disclaimer" role="note" aria-live="polite">
+            This subdomain is being used by Test as part of a security assessment. The access, control, and content on this page are carried out exclusively with the explicit permission of the owner of the main domain.
+            If you have reached this page accidentally, no further action is required.
+        </div>
+    </div>
+</body>
+</html>
