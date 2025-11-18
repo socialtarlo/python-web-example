@@ -2,91 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>BlueInnovation</title>
+    <title>Innovation Display</title>
+
     <style>
         :root{
-            --brand: #00BFB3;   /* blueinnovation */
-            --disclaimer: #002E5D; /* disclaimer */
-            --bg: #ffffff;
-            --text: #0a0a0a;
+            --brand-blue: #00BFB3;     /* BlueInnovation */
+            --brand-green: #00A86B;    /* GreenInnovation */
+            --text-default: #002E5D;   /* For all normal text, same as disclaimer */
         }
 
         body{
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-            background: var(--bg);
-            color: var(--text);
+            font-family: Arial, sans-serif;
             margin: 40px;
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
+            text-align: center;
+            color: var(--text-default);
         }
 
-        .container{
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .header{
-            display:flex;
-            align-items:center;
-            gap: 28px;
+        .pair{
+            display: flex;
+            align-items: center;
             justify-content: center;
+            gap: 18px;
+            margin-top: 35px;
             flex-wrap: wrap;
         }
 
-        img.logo{
-            height: 96px;
-            width: auto;
-            display:block;
+        .green-word{
+            color: var(--brand-green);
+            font-weight: bold;
         }
 
-        .title{
-            font-size: clamp(32px, 6vw, 72px); /* responsive large */
-            font-weight: 800;
-            letter-spacing: -1px;
-            color: #00BFB3;
-            text-transform: none;
+        .blue-word{
+            color: var(--brand-blue);
+            font-weight: bold;
+        }
+
+        .phrase{
+            font-size: 36px;
+        }
+
+        img.logo{
+            height: 80px;
+            width: auto;
         }
 
         .disclaimer{
-            margin-top: 36px;
+            margin-top: 50px;
             font-size: 15px;
-            line-height: 1.45;
-            color: #002E5D;
-            max-width: 900px;
-            text-align: center;
+            color: var(--text-default);
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            padding: 18px;
-            border-radius: 8px;
-        }
-
-        /* mobile tweaks */
-        @media (max-width:600px){
-            .header{
-                gap:16px;
-            }
-            img.logo{
-                height:72px;
-            }
-            .disclaimer{
-                font-size:14px;
-                padding:12px;
-            }
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="header" role="banner" aria-label="BlueInnovation header">
-            <img src="{{ url_for('static', filename='logo.jpg') }}" alt="BlueInnovation logo" class="logo" />
-            <div class="title">blueinnovation</div>
-        </div>
 
-        <div class="disclaimer" role="note" aria-live="polite">
-            This subdomain is being used by Tarlogic as part of a security assessment. The access, control, and content on this page are carried out exclusively with the explicit permission of the owner of the main domain.
-            If you have reached this page accidentally, no further action is required.
+<body>
+
+    <!-- GreenInnovation block -->
+    <div class="pair">
+        <div class="phrase">
+            Esto debería ser <span class="green-word">GreenInnovation</span>
         </div>
+        <img src="{{ url_for('static', filename='iber_logo.png') }}" class="logo" alt="Iberdrola logo">
     </div>
+
+    <!-- BlueInnovation block -->
+    <div class="pair">
+        <div class="phrase">
+            Pero es <span class="blue-word">BlueInnovation</span>
+        </div>
+        <img src="{{ url_for('static', filename='tar_logo.jpg') }}" class="logo" alt="Tarlogic logo">
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+        This subdomain is being used by Test as part of a security assessment.
+        The access, control, and content on this page are carried out exclusively with the explicit permission of the owner of the main domain.
+        If you have reached this page accidentally, no further action is required.
+    </div>
+
 </body>
 </html>
